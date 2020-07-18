@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="{% static 'fa/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'index.css' %}">
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <title>Django + Bootstrap</title>
+    <title>Sorting Visualizer</title>
+     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   </head>
 
@@ -19,7 +20,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Menu</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -69,80 +70,88 @@
         <ul>
           <li>Input an integer as lenth of the array to be sorted in the navigation bar form and click save (if no input, array wil have random length)</li>
           <li>Click on which sorting algorithm you want to visualize</li>
-          <li><b>Watch the magic happen!</b> - <b>PS:</b> Because the program generates a video of the sorting process it takes a little while to load :3</li>
+          <li>
+            <b>Watch the magic happen!</b>
+            -
+            <b>PS:</b>
+            Because the program generates a video of the sorting process it takes a little while to load :3</li>
         </ul>
         <hr class="my-4">
 
-
-    <script>
-      var n = 0;
-      function save() {
-        n = document
-          .getElementById("n")
-          .value;
-        alert("The array that will be sorted will now have length " + n);
-      }
-
-      $(document).ready(function () {
-        $("#merge").click(function () {
-          $('.ajaxProgress').show();
-          $.ajax({
-            url: "/a",
-            data: {
-              'data': 5,
-              'number': n
-            },
-            success: function (result) {
-              $("#div1").html(result);
-              $('.ajaxProgress').hide();
+        <script>
+          var n = 0;
+          function save() {
+            n = document
+              .getElementById("n")
+              .value;
+              if(n < 1){
+                alert("The array that will be sorted will now have a random length");
+              }else{
+            alert("The array that will be sorted will now have length " + n);
             }
-          });
-        });
-        $("#quick").click(function () {
-          $('.ajaxProgress').show();
-          $.ajax({
-            url: "/a",
-            data: {
-              'data': 3,
-              'number': n
-            },
-            success: function (result) {
-              $("#div1").html(result);
-              $('.ajaxProgress').hide();
-            }
-          });
-        });
-        $("#bubble").click(function () {
-          $('.ajaxProgress').show();
-          $.ajax({
-            url: "/a",
-            data: {
-              'data': 1,
-              'number': n
-            },
-            success: function (result) {
-              $("#div1").html(result);
-              $('.ajaxProgress').hide();
-            }
-          });
-        });
-        $("#insertion").click(function () {
-          $('.ajaxProgress').show();
-          $.ajax({
-            url: "/a",
-            data: {
-              'data': 2,
-              'number': n
-            },
-            success: function (result) {
-              $("#div1").html(result);
-              $('.ajaxProgress').hide();
-            }
-          });
-        });
-      });
-    </script>
+          }
 
-  </body>
+          $(document).ready(function () {
+            $("#merge").click(function () {
+              $('.ajaxProgress').show();
+              $.ajax({
+                url: "/a",
+                data: {
+                  'data': 5,
+                  'number': n
+                },
+                success: function (result) {
+                  $("#div1").html(result);
+                  $('.ajaxProgress').hide();
+                }
+              });
+            });
+            $("#quick").click(function () {
+              $('.ajaxProgress').show();
+              $.ajax({
+                url: "/a",
+                data: {
+                  'data': 3,
+                  'number': n
+                },
+                success: function (result) {
+                  $("#div1").html(result);
+                  $('.ajaxProgress').hide();
+                }
+              });
+            });
+            $("#bubble").click(function () {
+              $('.ajaxProgress').show();
+              $.ajax({
+                url: "/a",
+                data: {
+                  'data': 1,
+                  'number': n
+                },
+                success: function (result) {
+                  $("#div1").html(result);
+                  $('.ajaxProgress').hide();
+                }
+              });
+            });
+            $("#insertion").click(function () {
+              $('.ajaxProgress').show();
+              $.ajax({
+                url: "/a",
+                data: {
+                  'data': 2,
+                  'number': n
+                },
+                success: function (result) {
+                  $("#div1").html(result);
+                  $('.ajaxProgress').hide();
+                }
+              });
+            });
+          });
+        </script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      </body>
 
-</html>
+    </html>
