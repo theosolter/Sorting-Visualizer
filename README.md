@@ -9,4 +9,4 @@ More instructions are on the home page.
 The web app was designed with video generation because I saw this as an opportunity to learn Python libraries and frameworks (such as Django and MatPLotLib), as well as how a web app works behind the scenes with requests from the server to display for users (using JavaScript, Ajax, HTML, CSS).
 Also, this web app can be used by visual learners who would like not only to visually see the sorting algorithms working, but would also want the chance to go back, forth and pause the process to fully understand the algorithms.
 
-I hope you enjoy using it as much as I enjoyed building it! - Link: http://theosolter.pythonanywhere.com/
+I hope you enjoy using it as much as I enjoyed building it! - You can access it here (use Google Chrome!): http://theosolter.pythonanywhere.com/
