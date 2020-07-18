@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>    
+  </head>
+  <body>
+    <div>
+    <button onclick="location.href = '{% url 'script' %}'">Run</button>
+    
+    {% if video%}
+      {{ video }}
+    {% endif %}
+    </div>
+  </body>
+</html>

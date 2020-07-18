@@ -1,0 +1,148 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fa/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>Django + Bootstrap</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <button id="merge">Merge Sort</button>
+            </li>
+            <li class="nav-item">
+              <button id="quick">Quick Sort</button>
+            </li>
+            <li class="nav-item">
+              <button id="bubble">Bubble Sort</button>
+            </li>
+            <li class="nav-item">
+              <button id="insertion">Insertion Sort</button>
+            </li>
+
+          </ul>
+
+          <form class="form-inline my-2 my-lg-0" onsubmit="return false;">
+            <input class="form-control mr-sm-2" type="int" placeholder="Length of array to sort" aria-label="Length" id="n">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="save();">Save</button>
+          </form>
+
+        </div>
+      </div>
+    </nav>
+
+    <div id="loading">
+      <div class="ajaxProgress">
+        <div class="content">
+          <h3>Creating sorting algorithm video...</h3>
+          <img src="{{ MEDIA_URL }}/static/ajax-loader.gif" alt="loading"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="jumbotron" id="div1">
+        <h1 class="display-4">Instructions for Sorting Algorithms Video Visualizer
+          <i class="fas fa-globe-americas"></i>
+        </h1>
+        <p></p>
+        <p></p>
+        <p></p>
+        <ul>
+          <li>Input an integer as lenth of the array to be sorted in the navigation bar form and click save (if no input, array wil have random length)</li>
+          <li>Click on which sorting algorithm you want to visualize</li>
+          <li><b>Watch the magic happen!</b> - <b>PS:</b> Because the program generates a video of the sorting process it takes a little while to load :3</li>
+        </ul>
+        <hr class="my-4">
+
+
+    <script>
+      var n = 0;
+      function save() {
+        n = document
+          .getElementById("n")
+          .value;
+        alert("The array that will be sorted will now have length " + n);
+      }
+
+      $(document).ready(function () {
+        $("#merge").click(function () {
+          $('.ajaxProgress').show();
+          $.ajax({
+            url: "/a",
+            data: {
+              'data': 5,
+              'number': n
+            },
+            success: function (result) {
+              $("#div1").html(result);
+              $('.ajaxProgress').hide();
+            }
+          });
+        });
+        $("#quick").click(function () {
+          $('.ajaxProgress').show();
+          $.ajax({
+            url: "/a",
+            data: {
+              'data': 3,
+              'number': n
+            },
+            success: function (result) {
+              $("#div1").html(result);
+              $('.ajaxProgress').hide();
+            }
+          });
+        });
+        $("#bubble").click(function () {
+          $('.ajaxProgress').show();
+          $.ajax({
+            url: "/a",
+            data: {
+              'data': 1,
+              'number': n
+            },
+            success: function (result) {
+              $("#div1").html(result);
+              $('.ajaxProgress').hide();
+            }
+          });
+        });
+        $("#insertion").click(function () {
+          $('.ajaxProgress').show();
+          $.ajax({
+            url: "/a",
+            data: {
+              'data': 2,
+              'number': n
+            },
+            success: function (result) {
+              $("#div1").html(result);
+              $('.ajaxProgress').hide();
+            }
+          });
+        });
+      });
+    </script>
+
+  </body>
+
+</html>
