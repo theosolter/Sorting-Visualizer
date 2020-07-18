@@ -1,4 +1,4 @@
-# Sorting-Visualizer.github.io
+# Sorting-Visualizer
 
 This is a Sorting Algorithms Visualizer built using Django and MatPLotLib (with MatPlotLib animations). The availale algortihms for visualization are Merge Sort, Quick Sort, Insertion Sort and Bubble Sort. The sorting visualizer portrays when a certain value in the array is being accessed by changing its color to red. This web application generates an MP4 video of the sorting algorithm chosen by the user sorting an array (represented by a graph) with length also chosen by the user. It does that by saving the MatPlotLib animation to an HTML video tag.
 
